@@ -4,6 +4,15 @@ import pathlib
 import random
 from string import ascii_letters
 
+from rich.console import Console
+from rich.theme import Theme
+
+console = Console(width=40, theme=Theme({"warning": "red on yellow"}))
+
+def refresh_page(headline):
+    console.clear()
+    console.rule(f"[bold blue]:leafy_green: {headline} :leafy_green:[/]\n")
+
 def get_random_word(wordlist):
     """get a random word with length of 5 from list of strings
     
