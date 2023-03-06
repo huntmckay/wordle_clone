@@ -66,6 +66,12 @@ def end_game(guesses, word, guessed_correctly=False):
     else:
         console.print(f"\n[bold white on red]Sorry, the word is {word}[/]")
 
+def valid_input(guess):
+    breakpoint()
+    for i in guess:
+        if ord(i.lower()) in range(97,123):
+            return True
+
 def main():
     
     #Pre-Process
@@ -87,11 +93,6 @@ def main():
             break
     #Post-Process
     end_game(guesses, word, guessed_correctly)
-
-def valid_input(guess):
-    for i in guess:
-        if ord(i.lower()) in range(97,123):
-            return True
 
 if __name__ == '__main__':
     main()
