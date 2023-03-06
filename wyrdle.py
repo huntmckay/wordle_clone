@@ -55,16 +55,6 @@ def show_guess(guesses,word):
 
 
         console.print("".join(styled_guess), justify="center")
-    # if guess == word:
-    #     return True
-    # else:
-    #     correct_letters = { letter for letter, correct in zip(guess, word) if letter == correct }
-    #     misplaced_letters = set(guess) & set(word) - correct_letters
-    #     wrong_letters = set(guess) - set(word)
-
-    #     print("Correct letters:", ", ".join(sorted(correct_letters)))
-    #     print("Misplaced letters:", ", ".join(sorted(misplaced_letters)))
-    #     print("Wrong letters:", ", ".join(sorted(wrong_letters)))
         
 def end_game(guesses, word, guessed_correctly=False):
     
@@ -75,10 +65,6 @@ def end_game(guesses, word, guessed_correctly=False):
         console.print(f"\n[bold white on green]Correct, the word is {word}[/]")
     else:
         console.print(f"\n[bold white on red]Sorry, the word is {word}[/]")
-    # if win:
-    #     print(f"CORRECT! The Secret word was {word}")
-    # else:
-    #     print(f"LOSER! The Secret word was {word}")
 
 def main():
     
