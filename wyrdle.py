@@ -22,13 +22,15 @@ def get_random_word(wordlist):
     'SNAKE'
     """ 
 
-    words = [
+    if words := [
         word.upper()
         for word in wordlist
         if len(word) == 5 and all(letter in ascii_letters for letter in word)
-    ]
-
-    return random.choice(words)
+    ]:
+        return random.choice(words)
+    else:
+        console.print("No words of length of 5 in the word list", style="warning")
+        raise SystemExit()
     
 def show_guess(guesses,word):
     """Show the user's guess on the terminal and classify all letters.
