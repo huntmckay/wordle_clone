@@ -22,6 +22,7 @@ def get_random_word(wordlist):
     'SNAKE'
     """ 
 
+    # this is called a walrus operator := it is a form of assignment expression
     if words := [
         word.upper()
         for word in wordlist
@@ -31,6 +32,15 @@ def get_random_word(wordlist):
     else:
         console.print("No words of length of 5 in the word list", style="warning")
         raise SystemExit()
+
+def guess_word(previous_guesses):
+    
+    guess = console.input("\nGuess word: ").upper()
+    
+    if guess in previous_guesses:
+        console.print(f"You've already guessed {guess}.", style="warning")
+        return guess_word(previous_guesses)
+    return guess
     
 def show_guess(guesses,word):
     """Show the user's guess on the terminal and classify all letters.
@@ -89,7 +99,7 @@ def main():
         show_guess(guesses, word) 
         print(f"Secret word is {word}")
 
-        guesses[guess_count] = input("\nGuess word: ").upper() 
+        guesses[guess_count] = guess_word(previous_guesses=guesses[:guess_count])
         if guesses[guess_count] == word:
             guessed_correctly = True
             break
