@@ -40,7 +40,18 @@ def guess_word(previous_guesses):
     if guess in previous_guesses:
         console.print(f"You've already guessed {guess}.", style="warning")
         return guess_word(previous_guesses)
-    return guess
+
+    if len(guess) < 5:
+        console.print(f"Guess must be 5 letters\nYour guess '{guess}' was {5 - len(guess)} letters short")
+        return guess_word(previous_guesses)
+    elif len(guess) > 5:
+        console.print(f"Guess must be 5 letters\nYour guess '{guess}' was {len(guess) - 5} letters long")
+        return guess_word(previous_guesses)
+    elif type(guess) != str:
+        console.print(f"{guess}")
+    else:
+        return guess
+
     
 def show_guess(guesses,word):
     """Show the user's guess on the terminal and classify all letters.
