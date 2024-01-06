@@ -1,4 +1,5 @@
 # wyrdle.py
+# find and remove guess spoiler
 
 import pathlib
 import random
